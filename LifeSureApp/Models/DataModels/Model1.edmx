@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DayNightDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_About">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AboutTitle" Type="nvarchar(max)" />
+          <Property Name="AboutMinDescription" Type="nvarchar(max)" />
+          <Property Name="AboutImageURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactEmail" Type="nvarchar(max)" />
+          <Property Name="ContactAddress" Type="nvarchar(max)" />
+          <Property Name="ContactPhone" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeePhotoURL" Type="nvarchar(max)" />
+          <Property Name="EmployeeFullName" Type="nvarchar(max)" />
+          <Property Name="EmployeeTitle" Type="nvarchar(max)" />
+          <Property Name="EmployeeFacebook" Type="nvarchar(max)" />
+          <Property Name="EmployeeX" Type="nvarchar(max)" />
+          <Property Name="EmployeeLinkedin" Type="nvarchar(max)" />
+          <Property Name="EmployeeInstagram" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Feature">
+          <Key>
+            <PropertyRef Name="FeatureId" />
+          </Key>
+          <Property Name="FeatureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeatureTitle" Type="nvarchar(max)" />
+          <Property Name="FeatureDescription" Type="nvarchar(max)" />
+          <Property Name="FeatureSubDescription" Type="nvarchar(max)" />
+          <Property Name="FeatureLink" Type="varchar(max)" />
+          <Property Name="VideoURL" Type="varchar(max)" />
+          <Property Name="ImageURL" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Question">
+          <Key>
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="QuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionTitle" Type="nvarchar(max)" />
+          <Property Name="QuestionAnswer" Type="nvarchar(max)" />
+          <Property Name="Question" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Service">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceImage" Type="nvarchar(max)" />
+          <Property Name="ServiceIcon" Type="nvarchar(max)" />
+          <Property Name="ServiceTitle" Type="nvarchar(max)" />
+          <Property Name="ServiceDescription" Type="nvarchar(max)" />
+          <Property Name="ServiceQuestionTitle" Type="nvarchar(max)" />
+          <Property Name="ServiceQuestionAnswer" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_SubFeature">
+          <Key>
+            <PropertyRef Name="SubFeatureId" />
+          </Key>
+          <Property Name="SubFeatureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubFeatureIcon" Type="nvarchar(max)" />
+          <Property Name="SubFeatureTitle" Type="nvarchar(max)" />
+          <Property Name="SubFeatureDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Testimonial">
+          <Key>
+            <PropertyRef Name="TestimonialId" />
+          </Key>
+          <Property Name="TestimonialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestimonialPhotoURL" Type="nvarchar(max)" />
+          <Property Name="TestimonialFullName" Type="nvarchar(max)" />
+          <Property Name="TestimonialTitle" Type="nvarchar(max)" />
+          <Property Name="TestimonialDescription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="DayNightDbModelStoreContainer">
+          <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employee" EntityType="Self.Tbl_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Feature" EntityType="Self.Tbl_Feature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Question" EntityType="Self.Tbl_Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Service" EntityType="Self.Tbl_Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SubFeature" EntityType="Self.Tbl_SubFeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Testimonial" EntityType="Self.Tbl_Testimonial" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DayNightDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_About">
+          <Key>
+            <PropertyRef Name="AboutId" />
+          </Key>
+          <Property Name="AboutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AboutTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutMinDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AboutImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeePhotoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFacebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeX" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLinkedin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeInstagram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Feature">
+          <Key>
+            <PropertyRef Name="FeatureId" />
+          </Key>
+          <Property Name="FeatureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeatureTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeatureDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeatureSubDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeatureLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VideoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Question">
+          <Key>
+            <PropertyRef Name="QuestionId" />
+          </Key>
+          <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Service">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_SubFeature">
+          <Key>
+            <PropertyRef Name="SubFeatureId" />
+          </Key>
+          <Property Name="SubFeatureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubFeatureIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubFeatureTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubFeatureDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_Testimonial">
+          <Key>
+            <PropertyRef Name="TestimonialId" />
+          </Key>
+          <Property Name="TestimonialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestimonialPhotoURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialFullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DayNightDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_About" EntityType="Self.Tbl_About" />
+          <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" />
+          <EntitySet Name="Tbl_Employee" EntityType="Self.Tbl_Employee" />
+          <EntitySet Name="Tbl_Feature" EntityType="Self.Tbl_Feature" />
+          <EntitySet Name="Tbl_Question" EntityType="Self.Tbl_Question" />
+          <EntitySet Name="Tbl_Service" EntityType="Self.Tbl_Service" />
+          <EntitySet Name="Tbl_SubFeature" EntityType="Self.Tbl_SubFeature" />
+          <EntitySet Name="Tbl_Testimonial" EntityType="Self.Tbl_Testimonial" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DayNightDbModelStoreContainer" CdmEntityContainer="DayNightDbEntities">
+          <EntitySetMapping Name="Tbl_About">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_About">
+              <MappingFragment StoreEntitySet="Tbl_About">
+                <ScalarProperty Name="AboutImageURL" ColumnName="AboutImageURL" />
+                <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+                <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+                <ScalarProperty Name="AboutMinDescription" ColumnName="AboutMinDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Contact">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Contact">
+              <MappingFragment StoreEntitySet="Tbl_Contact">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employee">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Employee">
+              <MappingFragment StoreEntitySet="Tbl_Employee">
+                <ScalarProperty Name="EmployeeInstagram" ColumnName="EmployeeInstagram" />
+                <ScalarProperty Name="EmployeeLinkedin" ColumnName="EmployeeLinkedin" />
+                <ScalarProperty Name="EmployeeX" ColumnName="EmployeeX" />
+                <ScalarProperty Name="EmployeeFacebook" ColumnName="EmployeeFacebook" />
+                <ScalarProperty Name="EmployeeTitle" ColumnName="EmployeeTitle" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeePhotoURL" ColumnName="EmployeePhotoURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Feature">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Feature">
+              <MappingFragment StoreEntitySet="Tbl_Feature">
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+                <ScalarProperty Name="FeatureLink" ColumnName="FeatureLink" />
+                <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+                <ScalarProperty Name="FeatureTitle" ColumnName="FeatureTitle" />
+                <ScalarProperty Name="FeatureDescription" ColumnName="FeatureDescription" />
+                <ScalarProperty Name="FeatureSubDescription" ColumnName="FeatureSubDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Question">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Question">
+              <MappingFragment StoreEntitySet="Tbl_Question">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="QuestionTitle" ColumnName="QuestionTitle" />
+                <ScalarProperty Name="QuestionAnswer" ColumnName="QuestionAnswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Service">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Service">
+              <MappingFragment StoreEntitySet="Tbl_Service">
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="ServiceImage" ColumnName="ServiceImage" />
+                <ScalarProperty Name="ServiceIcon" ColumnName="ServiceIcon" />
+                <ScalarProperty Name="ServiceTitle" ColumnName="ServiceTitle" />
+                <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SubFeature">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_SubFeature">
+              <MappingFragment StoreEntitySet="Tbl_SubFeature">
+                <ScalarProperty Name="SubFeatureId" ColumnName="SubFeatureId" />
+                <ScalarProperty Name="SubFeatureIcon" ColumnName="SubFeatureIcon" />
+                <ScalarProperty Name="SubFeatureTitle" ColumnName="SubFeatureTitle" />
+                <ScalarProperty Name="SubFeatureDescription" ColumnName="SubFeatureDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Testimonial">
+            <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Testimonial">
+              <MappingFragment StoreEntitySet="Tbl_Testimonial">
+                <ScalarProperty Name="TestimonialId" ColumnName="TestimonialId" />
+                <ScalarProperty Name="TestimonialPhotoURL" ColumnName="TestimonialPhotoURL" />
+                <ScalarProperty Name="TestimonialFullName" ColumnName="TestimonialFullName" />
+                <ScalarProperty Name="TestimonialTitle" ColumnName="TestimonialTitle" />
+                <ScalarProperty Name="TestimonialDescription" ColumnName="TestimonialDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

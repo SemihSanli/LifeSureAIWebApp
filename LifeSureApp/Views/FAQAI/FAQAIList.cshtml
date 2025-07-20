@@ -1,0 +1,197 @@
+﻿@model List<LifeSureApp.Models.DataModels.Tbl_Question>
+@{
+    ViewBag.Title = "GenerateFAQList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<style>
+    .faq-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 32px;
+        margin-top: 32px;
+    }
+
+    .faq-card {
+        background: #23272f;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 28px 24px 20px 24px;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+        position: relative;
+        border: none;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+        .faq-card:hover {
+            box-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.28);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+    .faq-card-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .faq-card-title {
+        color: #90caf9;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+        flex: 1;
+        word-break: break-word;
+    }
+
+    .faq-card-question {
+        color: #fff;
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+        font-weight: 500;
+        word-break: break-word;
+    }
+
+    .faq-card-answer {
+        color: #b2dfdb;
+        font-size: 1.01rem;
+        margin-bottom: 18px;
+        word-break: break-word;
+    }
+
+    .faq-card-actions {
+        margin-top: auto;
+        display: flex;
+        gap: 10px;
+    }
+
+    .action-btn {
+        padding: 8px 14px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .btn-edit {
+        background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+        color: #222;
+    }
+
+        .btn-edit:hover {
+            background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+            color: #111;
+        }
+
+    .btn-delete {
+        background: linear-gradient(90deg, #ff5858 0%, #f09819 100%);
+        color: #fff;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(90deg, #f09819 0%, #ff5858 100%);
+            color: #fff;
+        }
+
+    .btn-add {
+        background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 30px;
+        padding: 10px 22px;
+        font-size: 1.08rem;
+    }
+
+        .btn-add:hover {
+            background: linear-gradient(90deg, #21cbf3 0%, #2196f3 100%);
+            color: #fff;
+        }
+
+    .section-header-ai {
+        background: linear-gradient(90deg, #23272f 0%, #2d323c 100%);
+        border-radius: 16px;
+        box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+        padding: 24px 32px 20px 32px;
+        margin-bottom: 32px;
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 6px solid #2196f3;
+    }
+
+    .section-header-title {
+        color: #fff;
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+
+        .section-header-title i {
+            color: #2196f3;
+            font-size: 1.6rem;
+        }
+
+    .section-header-ai .btn-add {
+        margin-left: 18px;
+    }
+</style>
+
+<div class="section-header-ai">
+    <span class="section-header-title">
+        <i class="fas fa-list-alt"></i>
+        FAQ Alanı İçin <span style="color:#90caf9;">AI Tabanlı Soru ve Cevaplar</span>
+    </span>
+    <a href="/FAQAI/GenerateAI" class="btn btn-add action-btn">
+        <i class="fas fa-plus-circle me-1"></i>Yeni Ekle
+    </a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning text-center mt-3">
+        Henüz hiç kayıt eklenmemiş. 👀
+    </div>
+}
+else
+{
+    <div class="faq-card-grid">
+        @foreach (var item in Model)
+        {
+            count++;
+            <div class="faq-card">
+                <div class="faq-card-header">
+                    <span class="badge bg-primary" style="font-size:1rem;">@count</span>
+                    <span class="faq-card-title">@item.QuestionTitle</span>
+                </div>
+                <div class="faq-card-question">
+                    <i class="fas fa-question-circle me-1"></i> @item.Question
+                </div>
+                <div class="faq-card-answer">
+                    <i class="fas fa-lightbulb me-1"></i> @item.QuestionAnswer
+                </div>
+                <div class="faq-card-actions">
+                    <a href="#" class="btn btn-edit action-btn" title="Düzenle">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="#" class="btn btn-delete action-btn" onclick="return confirm('Silmek istediğinize emin misiniz?');" title="Sil">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}

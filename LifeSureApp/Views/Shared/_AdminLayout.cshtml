@@ -1,0 +1,102 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Panel - Retro Modern</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts: Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #18122b;
+            color: #fff;
+            font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+        }
+        .sidebar {
+            background: linear-gradient(180deg, #2d0636 0%, #3a0ca3 100%);
+            min-height: 100vh;
+            padding-top: 2rem;
+            box-shadow: 2px 0 10px #00000044;
+        }
+        .sidebar .nav-link {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover {
+            background: #ff4ecd;
+            color: #18122b;
+        }
+        .sidebar .logo {
+            font-size: 2rem;
+            color: #a259f7;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .retro-card {
+            background: #2d0636;
+            border: 2px solid #a259f7;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #3a0ca388;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+        .retro-btn {
+            background: #ff4ecd;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+        .retro-btn:hover {
+            background: #a259f7;
+            color: #18122b;
+        }
+        .table thead {
+            background: #3a0ca3;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="logo mb-4">RETRO ADMIN</div>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "About" ? "active" : "")" href="/About/Index">About</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Contact" ? "active" : "")" href="/Contact/Index">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Employee" ? "active" : "")" href="/Employee/Index">Employee</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Feature" ? "active" : "")" href="/Feature/Index">Feature</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Question" ? "active" : "")" href="/Question/Index">Question</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Service" ? "active" : "")" href="/Service/Index">Service</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "SubFeature" ? "active" : "")" href="/SubFeature/Index">SubFeature</a></li>
+                    <li class="nav-item"><a class="nav-link @(ViewBag.Active == "Testimonial" ? "active" : "")" href="/Testimonial/Index">Testimonial</a></li>
+                </ul>
+            </nav>
+            <!-- Main Content -->
+            <main class="col-md-10 ms-sm-auto content">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

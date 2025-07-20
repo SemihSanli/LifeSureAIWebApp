@@ -1,0 +1,172 @@
+﻿@model List<LifeSureApp.Models.DataModels.Tbl_Feature>
+@{
+    ViewBag.Title = "FeatureList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+    .section-header-feature {
+        background: linear-gradient(90deg, #23272f 0%, #2d323c 100%);
+        border-radius: 16px;
+        box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+        padding: 24px 32px 20px 32px;
+        margin-bottom: 32px;
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 6px solid #43e97b;
+    }
+
+    .section-header-title {
+        color: #fff;
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+
+        .section-header-title i {
+            color: #43e97b;
+            font-size: 1.6rem;
+        }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    .feature-card {
+        background: #23272f;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 24px 24px 20px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 340px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+        .feature-card:hover {
+            box-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.28);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+    .feature-img {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+        background: #fff;
+        border: 3px solid #43e97b;
+        display: block;
+    }
+
+    .feature-placeholder {
+        width: 110px;
+        height: 110px;
+        border-radius: 16px;
+        background: #43e97b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .feature-title {
+        color: #81c784;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    .feature-desc {
+        color: #f8f9fa;
+        font-size: 0.96rem;
+        text-align: center;
+        word-break: break-word;
+        margin-bottom: 12px;
+    }
+
+    .feature-badge {
+        margin-top: 8px;
+        background-color: #17a2b8;
+        font-size: 0.9rem;
+        padding: 6px 14px;
+        border-radius: 30px;
+        color: #fff;
+    }
+
+    .feature-actions {
+        margin-top: 16px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+</style>
+
+<!-- Başlık -->
+<div class="section-header-feature">
+    <span class="section-header-title">
+        <i class="fas fa-star"></i>
+        Özellikler Listesi
+    </span>
+    <a href="/Feature/AddFeature" class="btn btn-success shadow-sm">
+        <i class="fa fa-plus me-2"></i> Yeni Özellik Ekle
+    </a>
+</div>
+
+<!-- İçerik -->
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center mt-3">
+        Kayıt bulunamadı.
+    </div>
+}
+else
+{
+    <div class="feature-grid">
+        @foreach (var item in Model)
+        {
+            count++;
+            <div class="feature-card">
+                @if (!string.IsNullOrEmpty(item.ImageURL))
+                {
+                    <img src="@item.ImageURL" alt="@item.FeatureTitle" class="feature-img" />
+                }
+                else
+                {
+                    <div class="feature-placeholder">
+                        <i class="fa fa-star"></i>
+                    </div>
+                }
+                <div class="feature-title">@count. @item.FeatureTitle</div>
+                <div class="feature-desc">@item.FeatureDescription</div>
+                <div class="feature-badge">#@count</div>
+                <div class="feature-actions">
+                    <a href="/Feature/UpdateFeature/@item.FeatureId" class="btn btn-outline-light btn-sm">
+                        <i class="fa fa-edit me-1"></i> Güncelle
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DayNightDbModelStoreContainer" CdmEntityContainer="DayNightDbEntities">
+    <EntitySetMapping Name="Tbl_About">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_About">
+        <MappingFragment StoreEntitySet="Tbl_About">
+          <ScalarProperty Name="AboutImageURL" ColumnName="AboutImageURL" />
+          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+          <ScalarProperty Name="AboutTitle" ColumnName="AboutTitle" />
+          <ScalarProperty Name="AboutMinDescription" ColumnName="AboutMinDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Contact">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Contact">
+        <MappingFragment StoreEntitySet="Tbl_Contact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Employee">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Employee">
+        <MappingFragment StoreEntitySet="Tbl_Employee">
+          <ScalarProperty Name="EmployeeInstagram" ColumnName="EmployeeInstagram" />
+          <ScalarProperty Name="EmployeeLinkedin" ColumnName="EmployeeLinkedin" />
+          <ScalarProperty Name="EmployeeX" ColumnName="EmployeeX" />
+          <ScalarProperty Name="EmployeeFacebook" ColumnName="EmployeeFacebook" />
+          <ScalarProperty Name="EmployeeTitle" ColumnName="EmployeeTitle" />
+          <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="EmployeePhotoURL" ColumnName="EmployeePhotoURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Feature">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Feature">
+        <MappingFragment StoreEntitySet="Tbl_Feature">
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="VideoURL" ColumnName="VideoURL" />
+          <ScalarProperty Name="FeatureLink" ColumnName="FeatureLink" />
+          <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+          <ScalarProperty Name="FeatureTitle" ColumnName="FeatureTitle" />
+          <ScalarProperty Name="FeatureDescription" ColumnName="FeatureDescription" />
+          <ScalarProperty Name="FeatureSubDescription" ColumnName="FeatureSubDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Question">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Question">
+        <MappingFragment StoreEntitySet="Tbl_Question">
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="QuestionTitle" ColumnName="QuestionTitle" />
+          <ScalarProperty Name="QuestionAnswer" ColumnName="QuestionAnswer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Service">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Service">
+        <MappingFragment StoreEntitySet="Tbl_Service">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ServiceImage" ColumnName="ServiceImage" />
+          <ScalarProperty Name="ServiceIcon" ColumnName="ServiceIcon" />
+          <ScalarProperty Name="ServiceTitle" ColumnName="ServiceTitle" />
+          <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SubFeature">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_SubFeature">
+        <MappingFragment StoreEntitySet="Tbl_SubFeature">
+          <ScalarProperty Name="SubFeatureId" ColumnName="SubFeatureId" />
+          <ScalarProperty Name="SubFeatureIcon" ColumnName="SubFeatureIcon" />
+          <ScalarProperty Name="SubFeatureTitle" ColumnName="SubFeatureTitle" />
+          <ScalarProperty Name="SubFeatureDescription" ColumnName="SubFeatureDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Testimonial">
+      <EntityTypeMapping TypeName="DayNightDbModel.Tbl_Testimonial">
+        <MappingFragment StoreEntitySet="Tbl_Testimonial">
+          <ScalarProperty Name="TestimonialId" ColumnName="TestimonialId" />
+          <ScalarProperty Name="TestimonialPhotoURL" ColumnName="TestimonialPhotoURL" />
+          <ScalarProperty Name="TestimonialFullName" ColumnName="TestimonialFullName" />
+          <ScalarProperty Name="TestimonialTitle" ColumnName="TestimonialTitle" />
+          <ScalarProperty Name="TestimonialDescription" ColumnName="TestimonialDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

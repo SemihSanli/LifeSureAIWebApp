@@ -1,0 +1,130 @@
+﻿@model LifeSureApp.ViewModels.FAQAIViewModel
+@{
+    ViewBag.Title = "GenerateAI";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<style>
+    .ai-card {
+        background: #18191c;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+        padding: 0;
+        overflow: hidden;
+    }
+    .ai-card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #23242a;
+        padding: 18px 28px 12px 28px;
+        border-bottom: 1px solid #23242a;
+    }
+    .ai-card-header i {
+        font-size: 2rem;
+        color: #ffb300;
+    }
+    .ai-card-header-title {
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+    .ai-label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
+    }
+    .ai-label-prompt { color: #ffb300; }
+    .ai-label-question { color: #ff9100; }
+    .ai-label-answer { color: #ffd54f; }
+    .ai-input, .ai-textarea {
+        background: #f5f6fa;
+        border: 2px solid #ffb300;
+        border-radius: 8px;
+        color: #222;
+        font-weight: 500;
+        width: 100%;
+        margin-bottom: 18px;
+        padding: 10px 14px;
+        transition: border-color 0.2s;
+    }
+    .ai-input:focus, .ai-textarea:focus {
+        border-color: #ff9100;
+        outline: none;
+        background: #fffbe7;
+    }
+    .ai-textarea {
+        min-height: 60px;
+        resize: vertical;
+    }
+    .ai-btn {
+        border-radius: 12px;
+        font-weight: 600;
+        padding: 10px 22px;
+        border: none;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .ai-btn-question {
+        background: #23242a;
+        color: #ffb300;
+        border: 1.5px solid #ffb300;
+    }
+    .ai-btn-question:hover {
+        background: #ffb300;
+        color: #23242a;
+    }
+    .ai-btn-answer {
+        background: #23242a;
+        color: #ffd54f;
+        border: 1.5px solid #ffd54f;
+    }
+    .ai-btn-answer:hover {
+        background: #ffd54f;
+        color: #23242a;
+    }
+</style>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="ai-card">
+                <div class="ai-card-header">
+                    <i class="fa fa-robot"></i>
+                    <span class="ai-card-header-title">AI Soru-Cevap Oluşturucu</span>
+                </div>
+                <div class="p-4">
+                    @using (Html.BeginForm("GenerateAI", "FAQAI", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <label for="QuestionTitle" class="ai-label ai-label-prompt">Prompt (Başlık)</label>
+                        @Html.TextBoxFor(m => m.QuestionTitle, new { @class = "ai-input", placeholder = "Prompt giriniz..." })
+
+                        <label for="Question" class="ai-label ai-label-question">Oluşturulan Soru</label>
+                        @Html.TextAreaFor(m => m.Question, new { @class = "ai-textarea", placeholder = "AI tarafından oluşturulacak soru...", rows = 2 })
+
+                        <label for="QuestionAnswer" class="ai-label ai-label-answer">Oluşturulan Cevap</label>
+                        @Html.TextAreaFor(m => m.QuestionAnswer, new { @class = "ai-textarea", placeholder = "AI cevabı burada görünecek...", rows = 2 })
+
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <button type="submit" name="submitType" value="SoruOlustur" class="ai-btn ai-btn-question">
+                                <i class="fa fa-key"></i> Soru Sor
+                            </button>
+                            <button type="submit" name="submitType" value="CevapOlustur" class="ai-btn ai-btn-answer">
+                                <i class="fa fa-lightbulb"></i> Cevap Oluştur
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+

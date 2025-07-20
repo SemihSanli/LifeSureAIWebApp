@@ -1,0 +1,82 @@
+﻿@model List<LifeSureApp.Models.DataModels.Tbl_About>
+@{
+    ViewBag.Title = "AboutList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<style>
+    .about-wrapper {
+        min-height: 100vh;
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-card {
+        background-color: #111;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s;
+    }
+
+        .about-card:hover {
+            transform: scale(1.02);
+        }
+
+    .about-image {
+        object-fit: cover;
+        height: 220px;
+        width: 100%;
+        background-color: #222;
+    }
+
+    .about-title {
+        color: #FF69B4;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .about-desc {
+        color: #FFD700;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .btn-update {
+        margin-top: 15px;
+    }
+</style>
+
+<div class="container-fluid about-wrapper">
+    <div class="row justify-content-center">
+        @if (Model != null && Model.Count > 0)
+        {
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card about-card">
+                        @if (!string.IsNullOrEmpty(item.AboutImageURL))
+                        {
+                            <img src="@item.AboutImageURL" class="about-image" alt="@item.AboutTitle" />
+                        }
+                        <div class="card-body text-center">
+                            <h5 class="about-title">@item.AboutTitle</h5>
+                            <p class="about-desc">@item.AboutMinDescription</p>
+                            <a href="/About/UpdateAbout/@item.AboutId" class="btn btn-outline-info btn-update">Güncelle</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <div class="alert alert-warning">Kayıt bulunamadı.</div>
+            </div>
+        }
+    </div>
+</div>

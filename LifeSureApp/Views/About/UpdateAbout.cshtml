@@ -1,0 +1,39 @@
+﻿@model LifeSureApp.Models.DataModels.Tbl_About
+@{
+    ViewBag.Title = "Update About";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8 col-lg-6">
+            <div class="bg-secondary rounded shadow p-4">
+                <h3 class="mb-4 text-center text-white">Hakkımızda Güncelle</h3>
+                <form method="post" novalidate>
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden" name="AboutId" value="@Model.AboutId" />
+
+                    <div class="mb-3">
+                        <label for="AboutTitle" class="form-label text-white fw-semibold">Başlık</label>
+                        <input type="text" name="AboutTitle" class="form-control" id="AboutTitle"
+                               value="@Model.AboutTitle" placeholder="Başlık giriniz" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="AboutMinDescription" class="form-label text-white fw-semibold">Açıklama</label>
+                        <textarea name="AboutMinDescription" class="form-control" id="AboutMinDescription" rows="4"
+                                  placeholder="Kısa açıklama giriniz">@Model.AboutMinDescription</textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="AboutImageURL" class="form-label text-white fw-semibold">Görsel URL</label>
+                        <input type="text" name="AboutImageURL" class="form-control" id="AboutImageURL"
+                               value="@Model.AboutImageURL" placeholder="Görsel adresi giriniz" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-semibold">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

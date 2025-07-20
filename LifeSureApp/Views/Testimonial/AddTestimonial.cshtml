@@ -1,0 +1,50 @@
+﻿@model LifeSureApp.Models.DataModels.Tbl_Testimonial
+@{
+    ViewBag.Title = "Referans Ekle";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-dark text-light shadow-lg border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0"><i class="fa fa-quote-left text-warning me-2"></i>Referans Ekle</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddTestimonial", "Testimonial", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            <label for="TestimonialPhotoURL" class="form-label text-info">Fotoğraf URL</label>
+                            @Html.TextBoxFor(m => m.TestimonialPhotoURL, new { @class = "form-control bg-dark text-info border-info", placeholder = "Fotoğraf URL" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="TestimonialFullName" class="form-label text-success">Ad Soyad</label>
+                            @Html.TextBoxFor(m => m.TestimonialFullName, new { @class = "form-control bg-dark text-success border-success", placeholder = "Ad Soyad" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="TestimonialTitle" class="form-label text-primary">Ünvan</label>
+                            @Html.TextBoxFor(m => m.TestimonialTitle, new { @class = "form-control bg-dark text-primary border-primary", placeholder = "Ünvan" })
+                        </div>
+                        <div class="mb-3">
+                            <label for="TestimonialDescription" class="form-label text-warning">Açıklama</label>
+                            @Html.TextAreaFor(m => m.TestimonialDescription, new { @class = "form-control bg-dark text-warning border-warning", placeholder = "Açıklama", rows = 3 })
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="/Testimonial/TestimonialList" class="btn btn-outline-light">
+                                <i class="fa fa-arrow-left me-1"></i> Geri Dön
+                            </a>
+                            <button type="submit" class="btn btn-info text-white">
+                                <i class="fa fa-save me-1"></i> Kaydet
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome CDN for icons (if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+

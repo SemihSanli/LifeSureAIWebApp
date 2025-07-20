@@ -1,0 +1,171 @@
+﻿@model List<LifeSureApp.Models.DataModels.Tbl_Contact>
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+    .section-header-contact {
+        background: linear-gradient(90deg, #23272f 0%, #2d323c 100%);
+        border-radius: 16px;
+        box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.10);
+        padding: 24px 32px 20px 32px;
+        margin-bottom: 32px;
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 6px solid #43e97b;
+    }
+
+    .section-header-title {
+        color: #fff;
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+
+        .section-header-title i {
+            color: #43e97b;
+            font-size: 1.6rem;
+        }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    .contact-card {
+        background: #23272f;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 28px 24px 20px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 320px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+        .contact-card:hover {
+            box-shadow: 0 12px 32px 0 rgba(31, 38, 135, 0.28);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+    .contact-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: #43e97b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .contact-email {
+        color: #81c784;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .contact-address {
+        color: #64b5f6;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        text-align: center;
+        word-break: break-word;
+    }
+
+    .contact-phone {
+        color: #f8f9fa;
+        font-size: 0.96rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .contact-badge {
+        margin-top: 12px;
+        background-color: #17a2b8;
+        font-size: 0.9rem;
+        padding: 6px 14px;
+        border-radius: 30px;
+        color: #fff;
+    }
+
+    .contact-actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+</style>
+
+<!-- Başlık -->
+<div class="section-header-contact">
+    <span class="section-header-title">
+        <i class="fas fa-address-book"></i>
+        İletişim Bilgileri
+    </span>
+    <a href="/Contact/AddContact" class="btn btn-success shadow-sm">
+        <i class="fa fa-plus me-2"></i> Yeni Bilgi Ekle
+    </a>
+</div>
+
+<!-- İçerik -->
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center mt-3">
+        📭 Kayıt bulunamadı.
+    </div>
+}
+else
+{
+    <div class="contact-grid">
+        @foreach (var item in Model)
+        {
+            count++;
+            <div class="contact-card">
+                <div class="contact-avatar">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="contact-email">
+                    <i class="fa fa-envelope me-2"></i>@item.ContactEmail
+                </div>
+                <div class="contact-address">
+                    <i class="fa fa-map-marker-alt me-2"></i>@item.ContactAddress
+                </div>
+                <div class="contact-phone">
+                    <i class="fa fa-phone me-2"></i>@item.ContactPhone
+                </div>
+                <div class="contact-badge">#@count</div>
+                <div class="contact-actions">
+                    <a href="/Contact/UpdateContact/@item.ContactId" class="btn btn-outline-light btn-sm">
+                        <i class="fa fa-edit me-1"></i> Güncelle
+                    </a>
+                    <a href="/Contact/DeleteContact/@item.ContactId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Silmek istediğinize emin misiniz?');">
+                        <i class="fa fa-trash me-1"></i> Sil
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}

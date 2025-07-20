@@ -1,0 +1,22 @@
+@model LifeSureApp.Models.DataModels.Tbl_About
+@{
+    ViewBag.Title = "About Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Active = "About";
+}
+<div class="retro-card">
+    <h3>About Sil</h3>
+    <p>Bu kaydı silmek istediğinize emin misiniz?</p>
+    <dl class="row">
+        <dt class="col-sm-3">Başlık</dt>
+        <dd class="col-sm-9">@Model.AboutTitle</dd>
+        <dt class="col-sm-3">Açıklama</dt>
+        <dd class="col-sm-9">@Model.AboutMinDescription</dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.AboutId)
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a href="/About/Index" class="btn btn-outline-light ms-2">Vazgeç</a>
+    }
+</div> 

@@ -1,0 +1,218 @@
+﻿@model LifeSureApp.ViewModels.LinkedinViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>LifeSure - Life Insurance Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght%400,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght%40-10..0,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="~/Content/LifeSure-1.0.0/lib/animate/animate.min.css" />
+    <link href="~/Content/LifeSure-1.0.0/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="~/Content/LifeSure-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Content/LifeSure-1.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/Content/LifeSure-1.0.0/css/style.css" rel="stylesheet">
+
+
+
+    <style>
+        :root {
+            --bs-primary: #1976D2;
+            --bs-secondary: #64B5F6;
+            --bs-accent: #00B8D4;
+            --bs-success: #43A047;
+            --bs-warning: #FFD600;
+            --bs-danger: #E53935;
+            --bs-bg-light: #F5F7FA;
+            --bs-bg-dark: #102542;
+            --bs-text-main: #102542;
+            --bs-text-secondary: #455A64;
+        }
+
+        /* Ana renkler */
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .bg-primary {
+            background-color: var(--bs-primary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary) !important;
+            border-color: var(--bs-primary) !important;
+            color: #fff !important;
+        }
+
+            .btn-primary:hover, .btn-primary:focus {
+                background-color: var(--bs-secondary) !important;
+                border-color: var(--bs-secondary) !important;
+                color: #fff !important;
+            }
+
+        /* İkincil renk */
+        .text-secondary {
+            color: var(--bs-secondary) !important;
+        }
+
+        .bg-secondary {
+            background-color: var(--bs-secondary) !important;
+        }
+
+        .btn-secondary {
+            background-color: var(--bs-secondary) !important;
+            border-color: var(--bs-secondary) !important;
+            color: #fff !important;
+        }
+
+            .btn-secondary:hover, .btn-secondary:focus {
+                background-color: var(--bs-primary) !important;
+                border-color: var(--bs-primary) !important;
+                color: #fff !important;
+            }
+
+        /* Vurgu */
+        .text-accent {
+            color: var(--bs-accent) !important;
+        }
+
+        .bg-accent {
+            background-color: var(--bs-accent) !important;
+        }
+
+        /* Başarı, uyarı, hata */
+        .text-success {
+            color: var(--bs-success) !important;
+        }
+
+        .bg-success {
+            background-color: var(--bs-success) !important;
+        }
+
+        .text-warning {
+            color: var(--bs-warning) !important;
+        }
+
+        .bg-warning {
+            background-color: var(--bs-warning) !important;
+        }
+
+        .text-danger {
+            color: var(--bs-danger) !important;
+        }
+
+        .bg-danger {
+            background-color: var(--bs-danger) !important;
+        }
+
+        /* Arka planlar */
+        .bg-light {
+            background-color: var(--bs-bg-light) !important;
+        }
+
+        .bg-dark, footer, .footer {
+            background-color: var(--bs-bg-dark) !important;
+            color: #fff !important;
+        }
+
+        /* Metin */
+        .text-main {
+            color: var(--bs-text-main) !important;
+        }
+
+        .text-secondary-main {
+            color: var(--bs-text-secondary) !important;
+        }
+
+        /* Kart ve kutular için gölge ve geçiş */
+        .card, .service-item, .accordion-item {
+            box-shadow: 0 4px 24px 0 rgba(25,118,210,0.08), 0 1.5px 4px 0 rgba(100,181,246,0.08);
+            border-radius: 1rem;
+            transition: box-shadow 0.2s;
+        }
+
+            .card:hover, .service-item:hover, .accordion-item:hover {
+                box-shadow: 0 8px 32px 0 rgba(25,118,210,0.16), 0 3px 8px 0 rgba(100,181,246,0.16);
+            }
+
+        /* Linkler */
+        a {
+            color: var(--bs-primary);
+        }
+
+            a:hover, a:focus {
+                color: var(--bs-accent);
+            }
+    </style>
+
+
+
+</head>
+
+
+
+
+<body>
+
+    @Html.Action("Spinner")
+    <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
+        <div class="container">
+            <div class="row gx-0 align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex border-end border-primary pe-3">
+
+                            <a class="btn p-0 text-primary me-0" href="#"><i class="fab fa-linkedin-in"> ( @Model.FollowersCount ) </i></a>
+                        </div>
+                        <div class="dropdown ms-3">
+                            <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                                <small>
+                                    <i class="fas fa-globe-europe text-primary me-2"></i>
+                                    @(System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "tr" ? Resources.SharedResource.Turkish : Resources.SharedResource.English)
+                                </small>
+                            </a>
+                            <div class="dropdown-menu rounded">
+                                <a href="@Url.Action("Change", "Language", new { lang = "en", returnUrl = Request.RawUrl })" class="dropdown-item">@Resources.SharedResource.English</a>
+                                <a href="@Url.Action("Change", "Language", new { lang = "tr", returnUrl = Request.RawUrl })" class="dropdown-item">@Resources.SharedResource.Turkish</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Action("Navbar")
+    @Html.Action("Feature");
+    @Html.Action("SubFeature");
+    @Html.Action("About");
+    @Html.Action("Service");
+    @Html.Action("FAQ");
+    @Html.Action("Employee");
+    @Html.Action("Testimonial");
+    @Html.Action("Contact");
+    @Html.Action("Scripts");
+</body>
+</html>
